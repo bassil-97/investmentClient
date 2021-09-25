@@ -29,10 +29,6 @@ export default function Form() {
     const [showSpinner, setShowSpinner] = useState(false);
     const [open, setOpen] = useState(false);
 
-    const handleClick = () => {
-        setOpen(true);
-    };
-
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
         return;
@@ -78,7 +74,7 @@ export default function Form() {
             cardNumber: values.clientCardNumber
         }).then((response) => {
             if(response.data.saved) {
-                handleClick();
+                setOpen(true);
             }
         })
         
