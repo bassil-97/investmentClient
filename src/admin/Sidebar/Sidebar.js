@@ -24,8 +24,7 @@ export default function Sidebar() {
     return (
         <div className="sidebar">
             <div className="logo-details">
-                <i className='bx bxs-droplet icon'></i>
-                <div className="logo_name">WaterDrops</div>
+                <div className="logo_name">الهيئة العامة للاستثمار</div>
                 <i className='bx bx-menu' id="btn" ></i>
             </div>
             <ul className="nav-list">
