@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+
+import FormIndex from './components/form-parts/Form';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="main-banner">
+        <img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/100/000000/external-court-law-and-crime-kiranshastry-solid-kiranshastry.png"/>
+        <h1>الهيئة العامة للاستثمار</h1>
+      </div>
+      <FormIndex />
     </div>
   );
 }

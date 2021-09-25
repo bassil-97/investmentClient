@@ -1,0 +1,21 @@
+.form-index {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.form-index .container {
+    margin-top: 40px;
+}
+
+.form-index .container .card {
+    width: 60%;
+}
+
+@media screen and (max-width: 992px) {
+    .form-index .container .card {
+        width: 100%;
+    }
+}
