@@ -1,0 +1,33 @@
+.admin__login {
+    margin-top: 30px;
+}
+
+.admin__login input {
+    border-radius: 12px;
+    border: 1px solid lightgray;
+}
+
+.admin__login label {
+    color: black;
+    font-size: .8em;
+    font-weight: bold;
+    font-family: 'Tajawal';
+}
+
+.admin__login input:focus {
+    box-shadow: none;
+    border-color: lightblue;
+}
+
+.admin__login__btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-family: 'Tajawal';
+}
+
+.admin__login__btn button {
+    width: 200px;
+}

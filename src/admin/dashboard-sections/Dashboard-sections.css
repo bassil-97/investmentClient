@@ -1,0 +1,97 @@
+.db-products {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.card-img-top {
+    width: 100px;
+    height: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    transition: .5s;
+}
+
+.card-img-top:hover {
+    transform: scale(1.10);
+    transition-duration: .5s;
+}
+
+.card-body {
+    border-top: 1px solid lightgray;
+    font-family: 'Roboto';
+}
+
+.card-body .card-title {
+    font-family: 'poppins';
+}
+
+.card-body i {
+    font-size: 24px;
+    transition: .5s;
+    color: red;
+}
+
+.card-body i:hover {
+    opacity: .8;
+    cursor: pointer;
+    transition-duration: .5s;
+}
+
+.card-body .product-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#searchbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchbar label {
+    margin-right: 4px;
+}
+
+.bar-chart {
+    margin-bottom: 50px;
+    padding: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+}
+
+.total-earnings {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    width: 20rem;
+    margin: 14px;
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 10px rgba( 31, 38, 135, 0.37 );
+        box-shadow: 0 0 10px rgba( 31, 38, 135, 0.37 );
+    font-family: 'Roboto', sans-serif;
+}
+
+.total-earnings h6 {
+    margin-bottom: 14px;
+    font-size: .9em;
+   
+}
+
+.total-earnings h2 {
+    font-family: 'roboto';
+    font-weight: bold;
+    font-size: 2.5em;
+}

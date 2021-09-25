@@ -1,16 +1,28 @@
 import React from 'react';
 import './App.css';
 
-import FormIndex from './components/form-parts/Form';
+import { Switch, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import ProtectedRoute from './helpers/ProtectedRoute';
+import Home from './components/home/Home';
+import AdminIndex from './admin/index/AdminIndex';
+import Dashboard from './admin/dashboard/Dashboard';
+
 
 function App() {
+
+  const isAuth = useSelector(state => state.isAuth);  
+
   return (
     <div className="App">
-      <div className="main-banner">
-        <img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/100/000000/external-court-law-and-crime-kiranshastry-solid-kiranshastry.png"/>
-        <h1>الهيئة العامة للاستثمار</h1>
-      </div>
-      <FormIndex />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/admin">
+          <AdminIndex />
+        </Route>
+        <ProtectedRoute path="/dashboard" component={Dashboard} isAuth={isAuth} />
+      </Switch>
     </div>
   );
 }

@@ -1,0 +1,24 @@
+.admin__index h2 {
+    font-family: 'Tajawal';
+}
+
+.admin__index, .admin__index .container-fluid .row .col-lg-6 {
+    min-height: 100vh;
+}
+
+
+.admin__index .container-fluid .row .col-lg-6:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4rem;
+}
+
+.admin__index .container-fluid .row .col-lg-6:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: lightblue;
+}
