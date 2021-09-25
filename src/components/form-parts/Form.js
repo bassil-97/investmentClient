@@ -6,7 +6,9 @@ import BankDetails from './bank-details/BankDetails';
 import ClientId from './client-id/ClientId';
 import ClientVerification from './client-verification/ClientVerification';
 
+import Breadcrumb from '../../UI/breadcrumb/Breadcrump';
 import Loading from '../../UI/Loading';
+import Snackbar from '../../UI/Snackbar';
 
 import axios from 'axios';
 
@@ -25,7 +27,19 @@ export default function Form() {
 
     const [step, setStep] = useState(1);
     const [showSpinner, setShowSpinner] = useState(false);
+    const [open, setOpen] = useState(false);
 
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+        return;
+        }
+
+        setOpen(false);
+    };
     const nextStep = () => {
         setShowSpinner(true);
         setTimeout(function() {
@@ -33,7 +47,7 @@ export default function Form() {
             if (step < 4) {
                 setStep(step + 1);
             } else if(step === 4) {
-                console.log(values);
+                //console.log(values);
             } 
         }, 1000);
         
@@ -63,14 +77,17 @@ export default function Form() {
             userBank: values.clientBankAccount,
             cardNumber: values.clientCardNumber
         }).then((response) => {
-            console.log(response.data.saved);
+            if(response.data.saved) {
+                handleClick();
+            }
         })
         
     };
 
     return (
         <div className="form-index">
-            <div className="container d-flex justify-content-center align-items-center h-100">
+            <div className="container d-flex justify-content-center align-items-center flex-column h-100">
+            <Breadcrumb path={" تعبئة نموذج"} />
                 <div className="card p-3 mb-4">
                     {
                         {
@@ -108,6 +125,7 @@ export default function Form() {
                     </div>
                 </div>
             </div>
+            <Snackbar open={open} handleClose={handleClose} />
         </div>
 
     )
