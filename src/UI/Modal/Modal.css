@@ -1,0 +1,8 @@
+.modal__title {
+    text-align: center;
+}
+
+.modal__content {
+    display: flex;
+    justify-content: center;
+}

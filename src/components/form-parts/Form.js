@@ -8,7 +8,7 @@ import ClientVerification from './client-verification/ClientVerification';
 
 import Breadcrumb from '../../UI/breadcrumb/Breadcrump';
 import Loading from '../../UI/Loading';
-import Snackbar from '../../UI/Snackbar';
+import Modal from '../../UI/Modal/Modal';
 
 import axios from 'axios';
 
@@ -121,7 +121,7 @@ export default function Form() {
                     </div>
                 </div>
             </div>
-            <Snackbar open={open} handleClose={handleClose} />
+            <Modal open={open} handleClose={handleClose} />
         </div>
 
     )
