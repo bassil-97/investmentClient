@@ -26,7 +26,7 @@ export default function BankDetails({ handleChange, refundAmount }) {
         };
 
         fetchBanksList();
-    }, [banksList]);
+    }, []);
 
     return (
         <div>
@@ -45,7 +45,7 @@ export default function BankDetails({ handleChange, refundAmount }) {
                 <select className="form-control" id="bank-name" onChange={handleChange("clientBankAccount")}>
                     {
                         banksList && banksList.map((bank) => (
-                            <option value={bank.bank_name}>{bank.bank_name}</option>
+                            <option value={bank.name}>{bank.name}</option>
                         ))
                     }
                 </select>
