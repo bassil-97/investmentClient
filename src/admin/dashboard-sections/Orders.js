@@ -20,6 +20,9 @@ export default function Requests() {
 
     const options = {
         filterType: 'checkbox',
+        onDownload: (buildHead, buildBody, columns, data) => {
+            return "\uFEFF" + buildHead(columns) + buildBody(data); 
+        } 
     };
 
     useEffect(() => {
