@@ -16,3 +16,9 @@
     background: url('./assets/invest.jpg') center, #27AE60;
     background-size: cover;
 }
+
+.main-banner * {
+    font-family: 'Tajawal', sans-serif;
+}
+
+

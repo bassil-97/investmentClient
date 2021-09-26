@@ -1,37 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import MUIDataTable from "mui-datatables";
-import IconButton from '@material-ui/core/IconButton';
 import Clock from '../../UI/Clock';
 
-import firebase from '../../helpers/firebase';
+import axios from 'axios';
 
-import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
-export default function Orders() {
+export default function Requests() {
 
-    const [orders, setOrders] = useState();
+    const [requests, setRequests] = useState();
     const columns = [
-        "id", 
-        "name", 
-        "email", 
-        "order", 
-        "quantity", 
-        {
-            name: 'actions',
-            options: {
-                customBodyRender: (value, tableMeta, updateValue) => (
-                    <div>
-                        <IconButton onClick={() => removeOrderHandler(tableMeta.tableData[tableMeta.rowIndex]["0"])}>
-                            <DeleteOutlineIcon />
-                        </IconButton>
-                        <IconButton>
-                            <CheckCircleOutlineIcon />
-                        </IconButton>
-                    </div>
-                )
-            }
-        }
+        "الاسم", 
+        "رقم البطاقة", 
+        "رقم الجوال", 
+        "المبلغ المسترد", 
+        "الحساب في مصرف", 
+        "رقم البطاقة"
     ];
 
     const options = {
@@ -39,33 +22,16 @@ export default function Orders() {
     };
 
     useEffect(() => {
-        fetchOrdersList();
+        fetchRequestsList();
     }, []);
 
-    const fetchOrdersList = async () => {
-        const response = await fetch('https://water-delivery-acdc9-default-rtdb.firebaseio.com/orders.json');
-        const responseData = await response.json();
-
-        const loadedOrdersList = [];
-
-        for(const key in responseData) {
-            loadedOrdersList.push({
-                id: key,
-                name: responseData[key].firstName + ' ' + responseData[key].lastName,
-                email: responseData[key].email,
-                order: responseData[key].product,
-                phoneNumber: responseData[key].phoneNumber,
-                quantity: responseData[key].quantity
-            });
-        }
-        setOrders(loadedOrdersList);
-    };
-
-    const removeOrderHandler = orderId => {
-        console.log(orderId);
-        const ordersRef = firebase.database().ref("orders").child(orderId);
-        ordersRef.remove();
-        fetchOrdersList();
+    const fetchRequestsList = async () => {
+        axios.get("https://investment-com.herokuapp.com/clients-requests")
+        .then((response) => {
+            if(response.data['requests']) {
+                setRequests(response.data['requests']);
+            }
+        });
     };
 
     return (
@@ -77,9 +43,9 @@ export default function Orders() {
                 </div>
                 <Clock />
             </div>
-            {orders && <MUIDataTable
+            {requests && <MUIDataTable
                 title={"Orders"}
-                data={orders}
+                data={requests}
                 columns={columns}
                 options={options}
             />}

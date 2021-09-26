@@ -2,12 +2,14 @@ import React, { useEffect } from 'react';
 import './Sidebar.css';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { authActions } from '../../store/auth-slice';
 import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
 
     const dispatch = useDispatch();
     const admin_name = useSelector(state => state.admin_name);
+    const company_name = useSelector(state => state.companyName.company_name);
  
     useEffect(()=> {
         let sidebar = document.querySelector(".sidebar");
@@ -19,13 +21,13 @@ export default function Sidebar() {
     }, []);
 
     const handleLogout = () => {
-        dispatch({ type: 'logout' });
+        dispatch(authActions.toggle());
     }
 
     return (
         <div className="sidebar">
             <div className="logo-details">
-                <div className="logo_name">الهيئة العامة للاستثمار</div>
+                <div className="logo_name">{company_name}</div>
                 <i className='bx bx-menu' id="btn" ></i>
             </div>
             <ul className="nav-list">
@@ -42,18 +44,18 @@ export default function Sidebar() {
                     <span className="tooltip">Dashboard</span>
                 </li>
                 <li>
-                    <Link to="/dashboard/products">
-                        <i className='bx bx-list-ul'></i>
-                        <span className="links_name">Products</span>
+                    <Link to="/dashboard/change-service-name">
+                        <i class='bx bx-edit-alt'></i>
+                        <span className="links_name">تغيير اسم الخدمة</span>
                     </Link>
-                    <span className="tooltip">Products</span>
+                    <span className="tooltip">تحرير</span>
                 </li>
                 <li>
-                    <Link to="/dashboard/add-product">
+                    <Link to="/dashboard/requests">
                     <i className='bx bx-plus-circle'></i>
-                    <span className="links_name">Add product</span>
+                    <span className="links_name">بيانات العملاء</span>
                     </Link>
-                    <span className="tooltip">Add Product</span>
+                    <span className="tooltip">بيانات العملاء</span>
                 </li>
                 <li className="profile">
                     <div className="profile-details">

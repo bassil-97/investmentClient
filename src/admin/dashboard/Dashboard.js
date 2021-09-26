@@ -6,6 +6,8 @@ import {  Route, withRouter } from 'react-router-dom';
 
 import Sidebar from '../Sidebar/Sidebar';
 import Home from '../dashboard-sections/Home';
+import CompanyNameForm from '../dashboard-sections/CompanyNameForm';
+import Requests from '../dashboard-sections/Orders';
 
 
 function Dashboard() {
@@ -67,6 +69,8 @@ function Dashboard() {
                 <Route path="/dashboard/home">
                     <Home products={products} orders={orders} />
                 </Route>
+                <Route path="/dashboard/change-service-name" component={CompanyNameForm} />
+                <Route path="/dashboard/requests" component={Requests} />
             </section>
             
         </div>

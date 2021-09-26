@@ -1,22 +1,10 @@
-import { createStore } from 'redux';
+import { configureStore } from "@reduxjs/toolkit";
 
-const authReducer = (state = { isAuth: false, admin_name: '' }, action) => {
-    if(action.type === 'login') {
-        return {
-            isAuth: !state.isAuth,
-            admin_name: action.payload
-        };
-    }
+import authSlice from './auth-slice';
+import companyNameSlice from "./company-name-slice";
 
-    if(action.type === 'logout') {
-        return {
-            isAuth: !state.isAuth
-        };
-    }
-
-    return state;
-};
-
-const store = createStore(authReducer);
+const store = configureStore({
+    reducer:  { auth: authSlice.reducer,  companyName: companyNameSlice.reducer}
+});
 
 export default store;

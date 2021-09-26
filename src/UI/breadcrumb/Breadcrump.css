@@ -1,3 +1,8 @@
 .breadcrumb-item > a {
     text-decoration: none;
+    font-family: 'Tajawal', sans-serif !important;
+}
+
+.breadcrumb-item {
+    font-family: 'Tajawal', sans-serif !important;
 }
