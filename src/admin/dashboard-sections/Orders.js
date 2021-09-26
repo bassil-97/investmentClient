@@ -9,12 +9,12 @@ export default function Requests() {
 
     const [requests, setRequests] = useState();
     const columns = [
-        "الاسم", 
-        "رقم البطاقة", 
-        "رقم الجوال", 
-        "المبلغ المسترد", 
-        "الحساب في مصرف", 
-        "رقم البطاقة"
+        "name", 
+        "idNumber", 
+        "phoneNumber", 
+        "refundAmount", 
+        "bankAccount", 
+        "cardNumber"
     ];
 
     const options = {
