@@ -75,7 +75,7 @@ export default function Form() {
         }, 
         {
             headers: {
-                origin: 'https://investment.netlify.app/',
+                origin: 'https://investment.netlify.app',
             }
         },
         ).then((response) => {
