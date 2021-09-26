@@ -31,7 +31,7 @@ export default function BankListFrom() {
                 <div className="service-name-form">
                     <div class="form-group">
                         <label for="bank-name">اسم المصرف</label>
-                        <input type="text" class="form-control w-75" id="bank-name" value={newBank} onChange={(e) => setNewServiceName(e.target.value)} />
+                        <input type="text" class="form-control w-75" id="bank-name" value={newBank} onChange={(e) => setNewBank(e.target.value)} />
                     </div>
                     <button type="button" class="btn btn-primary" onClick={addBankHandler}>إضافة</button>
                 </div>
