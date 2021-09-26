@@ -13,6 +13,7 @@
     justify-content: center;
     flex-direction: column;
     color: white;
+    padding: 20px;
     background: url('./assets/invest.jpg') center, #27AE60;
     background-size: cover;
 }
