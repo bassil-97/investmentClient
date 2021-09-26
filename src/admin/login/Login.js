@@ -25,7 +25,13 @@ export default function Login(props) {
             axios.post("https://investment-com.herokuapp.com/login", {
             email: username,
             password: userPassword
-            }).then((response) => {
+            },
+            {
+                headers: {
+                    'Access-Control-Allow-Origin': 'https://investment.netlify.app'
+                }
+            }
+            ).then((response) => {
                 if(response.data.userRegistered) {
                     dispatch(authActions.toggle(response.data['data'][0]['admin_name']));
                     history.push("/dashboard/home");
