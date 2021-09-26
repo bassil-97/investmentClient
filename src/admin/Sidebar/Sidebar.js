@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export default function Sidebar() {
 
     const dispatch = useDispatch();
-    const admin_name = useSelector(state => state.admin_name);
+    const admin_name = useSelector(state => state.auth.admin_name);
     const company_name = useSelector(state => state.companyName.company_name);
  
     useEffect(()=> {

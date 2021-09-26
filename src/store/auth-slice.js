@@ -2,12 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const authSlice = createSlice({
     name: 'auth',
-    initialState: { isAuth: true },
+    initialState: { isAuth: false, admin_name: '' },
     reducers: {
-        toggle(state) {
+        toggle(state, action) {
             state.isAuth = !state.isAuth;
+            state.admin_name = action.payload;
         },
-        
     }
 });
 

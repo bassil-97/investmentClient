@@ -4,6 +4,8 @@ import Alert from '../../UI/Alert/Alert';
 
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { authActions } from '../../store/auth-slice';
+
 import axios from 'axios';
 
 export default function Login(props) {
@@ -25,7 +27,7 @@ export default function Login(props) {
             password: userPassword
             }).then((response) => {
                 if(response.data.userRegistered) {
-                    dispatch({ type: 'login', payload: response.data['data'][0]['admin_name'] });
+                    dispatch(authActions.toggle(response.data['data'][0]['admin_name']));
                     history.push("/dashboard/home");
                 } else {
                     setIsLogged(response.data.message);
