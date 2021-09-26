@@ -54,33 +54,12 @@ export default function Sidebar() {
                     </Link>
                     <span className="tooltip">Add Product</span>
                 </li>
-                <li>
-                    <Link to="/dashboard/analytics">
-                        <i className='bx bx-pie-chart-alt-2' ></i>
-                        <span className="links_name">Analytics</span>
-                    </Link>
-                    <span className="tooltip">Analytics</span>
-                </li>
-                <li>
-                    <Link to="/dashboard/orders">
-                        <i className='bx bx-cart-alt'></i>
-                        <span className="links_name">Orders</span>
-                    </Link>
-                    <span className="tooltip">Orders</span>
-                </li>
-                <li>
-                    <Link to="#">
-                        <i className='bx bx-cog'></i>
-                        <span className="links_name">Settings</span>
-                    </Link>
-                    <span className="tooltip">Settings</span>
-                </li>
                 <li className="profile">
                     <div className="profile-details">
-                        <img src="https://avatars.githubusercontent.com/u/61696257?v=4" alt="profileImg" />
+                        <img src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/64/000000/external-user-interface-kiranshastry-gradient-kiranshastry-1.png"/>
                         <div className="name_job">
                             <div className="name">Bassil Alqadi</div>
-                            <div className="job">Web designer</div>
+                            <div className="job">Admin</div>
                         </div>
                     </div>
                     <i className='bx bx-log-out' id="log_out" onClick={handleLogout} ></i>

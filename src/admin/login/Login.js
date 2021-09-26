@@ -25,6 +25,7 @@ export default function Login(props) {
             password: userPassword
             }).then((response) => {
                 if(response.data.userRegistered) {
+                    console.log(response.data);
                     dispatch({ type: 'login' });
                     history.push("/dashboard/home");
                 } else {

@@ -2,13 +2,15 @@ import React from 'react';
 import Spinner from '../../UI/Spinner';
 import Clock from '../../UI/Clock';
 
+import './Dashboard-sections.css';
+
 export default function Home(props) {
     return (
         <div>
             <div className="db-header">
                 <div className="text">
-                    <h3 className="mb-0">Dashboard</h3>
-                    <small className="text-muted">Here's an overview of your website performance</small>
+                    <h3 className="mb-0">لوحة التحكم</h3>
+                    <small className="text-muted">من هنا تستطيع رؤية نظرة عامة عن التطبيق</small>
                 </div>
                 <Clock />
             </div>
