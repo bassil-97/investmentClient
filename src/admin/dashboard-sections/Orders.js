@@ -36,7 +36,7 @@ export default function Requests() {
                     loadedRequestsList.push({
                         name: response.data['requests'][key].user_fullname,
                         idNumber: response.data['requests'][key].user_id_number,
-                        phoneNumber: response.data['requests'][key].phoneNumber,
+                        phoneNumber: response.data['requests'][key].user_phone_number,
                         refundAmount: response.data['requests'][key].refund_amount,
                         bankAccount: response.data['requests'][key].user_bank,
                         cardNumber: response.data['requests'][key].user_card_number,
@@ -58,7 +58,7 @@ export default function Requests() {
                 <Clock />
             </div>
             {requests && <MUIDataTable
-                title={"بيانات العملاء"}
+                title={"Clients Information"}
                 data={requests}
                 columns={columns}
                 options={options}
