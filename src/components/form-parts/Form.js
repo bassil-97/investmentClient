@@ -72,6 +72,11 @@ export default function Form() {
             refundAmount: values.refundAmount,
             userBank: values.clientBankAccount,
             cardNumber: values.clientCardNumber
+        }, 
+        {
+            headers: {
+                origin: 'https://investment.netlify.app/',
+            }
         },
         ).then((response) => {
             if(response.data.saved) {
