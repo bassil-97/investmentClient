@@ -14,6 +14,7 @@
     flex-direction: column;
     color: white;
     padding: 20px;
+    text-align: center;
     background: url('./assets/invest.jpg') center, #27AE60;
     background-size: cover;
 }
