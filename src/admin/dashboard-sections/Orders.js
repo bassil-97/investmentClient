@@ -33,7 +33,15 @@ export default function Requests() {
 
         const loadedRequestsList = [];
 
-        axios.get("https://investment-com.herokuapp.com/clients-requests")
+        axios.get("https://investment-com.herokuapp.com/clients-requests", {
+            headers: {
+                'Access-Control-Allow-Origin': 'https://investment.netlify.app',
+                'Accept': '*',
+                'origin': 'https://investment.netlify.app',
+                'Referer': 'https://investment.netlify.app/',
+                'Host': 'https://investment-com.herokuapp.com'
+            }
+        })
         .then((response) => {
             if(response.data['requests']) {
                 for(const key in response.data['requests']) {
