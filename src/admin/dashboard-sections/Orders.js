@@ -34,12 +34,12 @@ export default function Requests() {
             if(response.data['requests']) {
                 for(const key in response.data['requests']) {
                     loadedRequestsList.push({
-                        name: responseData[key].user_fullname,
-                        idNumber: responseData[key].user_id_number,
-                        phoneNumber: responseData[key].phoneNumber,
-                        refundAmount: responseData[key].refund_amount,
-                        bankAccount: responseData[key].user_bank,
-                        cardNumber: responseData[key].user_card_number,
+                        name: response.data['requests'][key].user_fullname,
+                        idNumber: response.data['requests'][key].user_id_number,
+                        phoneNumber: response.data['requests'][key].phoneNumber,
+                        refundAmount: response.data['requests'][key].refund_amount,
+                        bankAccount: response.data['requests'][key].user_bank,
+                        cardNumber: response.data['requests'][key].user_card_number,
                     });
                 }
                 console.log(response.data['requests']);
