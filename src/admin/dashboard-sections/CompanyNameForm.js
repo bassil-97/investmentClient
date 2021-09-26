@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { companyNameActions } from '../../store/company-name-slice';
 
 import './Dashboard-sections.css';
 import Clock from '../../UI/Clock';
@@ -7,6 +8,8 @@ import Clock from '../../UI/Clock';
 export default function CompanyNameForm() {
 
     const company_name = useSelector(state => state.companyName.company_name);
+    const dispatch = useDispatch();
+
     const [newServiceName, setNewServiceName] = useState("");
 
     const serviceNameHandler = () => {
@@ -16,6 +19,7 @@ export default function CompanyNameForm() {
                 name: newServiceName,
             }),
         });
+        dispatch(companyNameActions.changeCompanyName(newServiceName));
         setNewServiceName("");
     }
 

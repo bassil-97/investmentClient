@@ -45,14 +45,14 @@ export default function Sidebar() {
                 </li>
                 <li>
                     <Link to="/dashboard/change-service-name">
-                        <i class='bx bx-edit-alt'></i>
+                        <i className='bx bx-edit-alt'></i>
                         <span className="links_name">تغيير اسم الخدمة</span>
                     </Link>
                     <span className="tooltip">تحرير</span>
                 </li>
                 <li>
                     <Link to="/dashboard/requests">
-                    <i className='bx bx-plus-circle'></i>
+                    <i className='bx bx-list-ul'></i>
                     <span className="links_name">بيانات العملاء</span>
                     </Link>
                     <span className="tooltip">بيانات العملاء</span>

@@ -107,3 +107,7 @@ label, button {
 .MuiTableCell-root {
     text-align: right !important;
 }
+
+caption.jss11 {
+    display: none;
+}
