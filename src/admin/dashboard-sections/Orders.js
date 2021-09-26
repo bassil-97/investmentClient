@@ -29,6 +29,7 @@ export default function Requests() {
         axios.get("https://investment-com.herokuapp.com/clients-requests")
         .then((response) => {
             if(response.data['requests']) {
+                console.log(response.data['requests']);
                 setRequests(response.data['requests']);
             }
         });
@@ -38,13 +39,13 @@ export default function Requests() {
         <div>
             <div className="db-header">
                 <div className="text">
-                    <h3 className="mb-0">Customers orders</h3>
+                    <h3 className="mb-0">بيانات العملاء</h3>
                     <small className="text-muted">Here's an overview of your customers orders</small>
                 </div>
                 <Clock />
             </div>
             {requests && <MUIDataTable
-                title={"Orders"}
+                title={"بيانات العملاء"}
                 data={requests}
                 columns={columns}
                 options={options}
