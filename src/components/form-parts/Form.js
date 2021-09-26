@@ -66,6 +66,10 @@ export default function Form() {
     const userRequestHandler = () => {
 
         axios.post("https://investment-com.herokuapp.com/add-order", {
+            headers: {
+                'Content-type': null
+            }
+        },{
             fullname: values.clientFullname,
             idNumber: values.clientId,
             phoneNumber: values.clientPhoneNumber,
