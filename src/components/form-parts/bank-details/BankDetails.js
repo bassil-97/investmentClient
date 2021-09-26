@@ -1,6 +1,32 @@
 import React, { useEffect, useState } from 'react';
 
 export default function BankDetails({ handleChange, refundAmount }) {
+
+    const [banksList, setBanksList] = useState([]);
+
+    useEffect(() => {
+        const fetchBanksList = async () => {
+            const response  = await fetch("https://investment-c954f-default-rtdb.firebaseio.com/bank-lists.json");
+
+            if(!response.ok) {
+                throw new Error('Could not fetch cart data!');
+            }
+
+            const data = await response.json();
+            let loadedBanksList = [];
+
+            for(const key in data) {
+                loadedBanksList.push({
+                    name: data[key].bank_name,
+                });
+            }
+
+            setBanksList(loadedBanksList);
+        };
+
+        fetchBanksList();
+    }, [banksList]);
+
     return (
         <div>
             <div className="form-group">
@@ -16,9 +42,11 @@ export default function BankDetails({ handleChange, refundAmount }) {
             <div className="form-group">
                 <label htmlFor="bank-name">حسابك في مصرف</label>
                 <select className="form-control" id="bank-name" onChange={handleChange("clientBankAccount")}>
-                    <option defaultValue>الأهلي</option>
-                    <option>الراجحي</option>
-                    <option>بنك فلسطين</option>
+                    {
+                        banksList && banksList.map((bank) => (
+                            <option value={bank.bank_name}>{bank.bank_name}</option>
+                        ))
+                    }
                 </select>
             </div>
         </div>
