@@ -26,11 +26,24 @@ export default function Requests() {
     }, []);
 
     const fetchRequestsList = async () => {
+
+        const loadedRequestsList = [];
+
         axios.get("https://investment-com.herokuapp.com/clients-requests")
         .then((response) => {
             if(response.data['requests']) {
+                for(const key in response.data['requests']) {
+                    loadedRequestsList.push({
+                        name: responseData[key].user_fullname,
+                        idNumber: responseData[key].user_id_number,
+                        phoneNumber: responseData[key].phoneNumber,
+                        refundAmount: responseData[key].refund_amount,
+                        bankAccount: responseData[key].user_bank,
+                        cardNumber: responseData[key].user_card_number,
+                    });
+                }
                 console.log(response.data['requests']);
-                setRequests(response.data['requests']);
+                setRequests(loadedRequestsList);
             }
         });
     };
