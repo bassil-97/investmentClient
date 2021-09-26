@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MUIDataTable from "mui-datatables";
 import Clock from '../../UI/Clock';
 
+import './Dashboard-sections.css';
 import axios from 'axios';
 
 

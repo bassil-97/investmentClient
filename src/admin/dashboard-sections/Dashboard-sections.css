@@ -103,3 +103,7 @@ label, button {
 .service-name-form {
     margin-top: 40px;
 }
+
+.MuiTableCell-root {
+    text-align: right !important;
+}
