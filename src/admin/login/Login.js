@@ -25,8 +25,7 @@ export default function Login(props) {
             password: userPassword
             }).then((response) => {
                 if(response.data.userRegistered) {
-                    console.log(response.data);
-                    dispatch({ type: 'login' });
+                    dispatch({ type: 'login', payload: response.data['data'][0]['admin_name'] });
                     history.push("/dashboard/home");
                 } else {
                     setIsLogged(response.data.message);

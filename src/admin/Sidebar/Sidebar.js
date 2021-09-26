@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import './Sidebar.css';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
 
     const dispatch = useDispatch();
+    const admin_name = useSelector(state => state.admin_name);
  
     useEffect(()=> {
         let sidebar = document.querySelector(".sidebar");
@@ -58,7 +59,7 @@ export default function Sidebar() {
                     <div className="profile-details">
                         <img src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/64/000000/external-user-interface-kiranshastry-gradient-kiranshastry-1.png"/>
                         <div className="name_job">
-                            <div className="name">Bassil Alqadi</div>
+                            <div className="name">{admin_name}</div>
                             <div className="job">Admin</div>
                         </div>
                     </div>

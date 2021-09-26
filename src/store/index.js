@@ -1,9 +1,10 @@
 import { createStore } from 'redux';
 
-const authReducer = (state = { isAuth: false }, action) => {
+const authReducer = (state = { isAuth: false, admin_name: '' }, action) => {
     if(action.type === 'login') {
         return {
-            isAuth: !state.isAuth
+            isAuth: !state.isAuth,
+            admin_name: action.payload
         };
     }
 
