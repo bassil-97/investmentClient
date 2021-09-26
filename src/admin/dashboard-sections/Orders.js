@@ -59,7 +59,6 @@ export default function Requests() {
                 <Clock />
             </div>
             {requests && <MUIDataTable
-                title={"Clients Information"}
                 data={requests}
                 columns={columns}
                 options={options}

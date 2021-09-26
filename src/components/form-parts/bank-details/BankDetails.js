@@ -16,7 +16,7 @@ export default function BankDetails({ handleChange, refundAmount }) {
             <div className="form-group">
                 <label htmlFor="bank-name">حسابك في مصرف</label>
                 <select className="form-control" id="bank-name" onChange={handleChange("clientBankAccount")}>
-                    <option>الأهلي</option>
+                    <option defaultValue>الأهلي</option>
                     <option>الراجحي</option>
                     <option>بنك فلسطين</option>
                 </select>
