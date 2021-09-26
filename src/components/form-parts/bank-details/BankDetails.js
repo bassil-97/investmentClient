@@ -21,6 +21,7 @@ export default function BankDetails({ handleChange, refundAmount }) {
                 });
             }
 
+            console.log(loadedBanksList);
             setBanksList(loadedBanksList);
         };
 
