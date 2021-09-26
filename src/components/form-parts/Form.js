@@ -72,11 +72,7 @@ export default function Form() {
             refundAmount: values.refundAmount,
             userBank: values.clientBankAccount,
             cardNumber: values.clientCardNumber
-        }, {
-            headers: {
-                'Content-type': null
-            }
-        }
+        }, 
         ).then((response) => {
             if(response.data.saved) {
                 setOpen(true);
