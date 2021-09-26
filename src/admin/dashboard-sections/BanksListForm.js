@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './Dashboard-sections.css';
 import Clock from '../../UI/Clock';
 
-export default function CompanyNameForm() {
+export default function BankListFrom() {
 
     const [newBank, setNewBank] = useState("");
 

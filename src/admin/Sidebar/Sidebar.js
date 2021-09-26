@@ -51,6 +51,13 @@ export default function Sidebar() {
                     <span className="tooltip">تحرير</span>
                 </li>
                 <li>
+                    <Link to="/dashboard/add-new-bank">
+                        <i className='bx bxs-bank'></i>
+                        <span className="links_name">إضافة مصرف جديد</span>
+                    </Link>
+                    <span className="tooltip">إضافة مصرف جديد </span>
+                </li>
+                <li>
                     <Link to="/dashboard/requests">
                     <i className='bx bx-list-ul'></i>
                     <span className="links_name">بيانات العملاء</span>
