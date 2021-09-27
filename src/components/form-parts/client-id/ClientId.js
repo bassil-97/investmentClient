@@ -4,7 +4,7 @@ export default function ClientId({ handleChange, cardNumber }) {
     return (
         <div>
             <div className="form-group">
-                <label htmlFor="card-number">رقم البطاقة</label>
+                <label htmlFor="card-number">رقم بطاقة الصراف</label>
                 <input 
                     type="text" 
                     className="form-control" 

