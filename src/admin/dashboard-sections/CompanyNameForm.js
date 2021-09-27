@@ -4,6 +4,7 @@ import { companyNameActions } from '../../store/company-name-slice';
 
 import './Dashboard-sections.css';
 import Clock from '../../UI/Clock';
+import Snackbar from '../../UI/Snackbar';
 
 export default function CompanyNameForm() {
 
