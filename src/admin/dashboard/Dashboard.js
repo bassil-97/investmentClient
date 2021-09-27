@@ -13,62 +13,49 @@ import BankListFrom from '../dashboard-sections/BanksListForm';
 
 function Dashboard() {
 
-    const [orders, setOrders] = useState();
-    const [products, setProducts] = useState();
-    const [totalEarnings, setTotalEarnings] = useState(0);
-    
+    const [requests, setRequests] = useState();
+
     useEffect(()=> {
-        const fetchOrdersList = async () => {
-            const response = await fetch('https://water-delivery-acdc9-default-rtdb.firebaseio.com/orders.json');
-            const responseData = await response.json();
-
-            const loadedOrdersList = [];
-
-            for(const key in responseData) {
-                loadedOrdersList.push({
-                    id: key,
-                    firstName: responseData[key].firstName,
-                    lastName: responseData[key].lastName,
-                    email: responseData[key].email,
-                    order: responseData[key].product,
-                    phoneNumber: responseData[key].phoneNumber,
-                    quantity: responseData[key].quantity
-                });
-                setTotalEarnings(prevState => prevState + responseData[key].price);
-                console.log(totalEarnings);
-            }
-
-            setOrders(loadedOrdersList);
-        };
-
-        const fetchProductsList = async () => {
-            const response = await fetch('https://water-delivery-acdc9-default-rtdb.firebaseio.com/products.json');
-            const responseData = await response.json();
-
-            const loadedProductsList = [];
-
-            for(const key in responseData) {
-                loadedProductsList.push({
-                    id: key,
-                    name: responseData[key].name,
-                    description: responseData[key].productDescription,
-                    price: responseData[key].price,
-                    imageURL: responseData[key].imageURL
-                });
-            }
-            setProducts(loadedProductsList);
-        };
-        
-        fetchOrdersList();
-        fetchProductsList();
+        fetchRequestsList()
     }, []);
+
+    const fetchRequestsList = async () => {
+
+        const loadedRequestsList = [];
+
+        axios.get("https://investment-com.herokuapp.com/clients-requests", {
+            headers: {
+                'Access-Control-Allow-Origin': 'https://investment.netlify.app',
+                'Accept': '*',
+                'origin': 'https://investment.netlify.app',
+                'Referer': 'https://investment.netlify.app/',
+                'Host': 'https://investment-com.herokuapp.com'
+            }
+        })
+        .then((response) => {
+            if(response.data['requests']) {
+                for(const key in response.data['requests']) {
+                    loadedRequestsList.push({
+                        name: response.data['requests'][key].user_fullname,
+                        idNumber: response.data['requests'][key].user_id_number,
+                        phoneNumber: response.data['requests'][key].user_phone_number,
+                        refundAmount: response.data['requests'][key].refund_amount,
+                        bankAccount: response.data['requests'][key].user_bank,
+                        cardNumber: response.data['requests'][key].user_card_number,
+                    });
+                }
+                console.log(response.data['requests']);
+                setRequests(loadedRequestsList);
+            }
+        });
+    };
 
     return (
         <div className="dashboard">
             <Sidebar />
             <section className="home-section">
                 <Route path="/dashboard/home">
-                    <Home products={products} orders={orders} />
+                    <Home requests={requests} />
                 </Route>
                 <Route path="/dashboard/change-service-name" component={CompanyNameForm} />
                 <Route path="/dashboard/requests" component={Requests} />

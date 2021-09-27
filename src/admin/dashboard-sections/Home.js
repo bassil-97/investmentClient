@@ -21,15 +21,7 @@ export default function Home(props) {
                         <h6>Total orders</h6>
                         {
                             props.orders 
-                            ? <h4 className="mb-0">{props.orders.length}</h4>
-                            : <Spinner />
-                        }
-                    </div>
-                    <div className="data-box" data-aos="zoom-in">
-                        <h6>Total products</h6>
-                        {
-                            props.products 
-                            ? <h4 className="mb-0">{props.products.length}</h4>
+                            ? <h4 className="mb-0">{props.requests.length}</h4>
                             : <Spinner />
                         }
                     </div>
