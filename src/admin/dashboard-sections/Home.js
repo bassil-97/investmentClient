@@ -18,9 +18,9 @@ export default function Home(props) {
             <div className="dashboard-content">
                 <div className="data-box-wrapper">
                     <div className="data-box" data-aos="zoom-in">
-                        <h6>Total orders</h6>
+                        <h6>Total requests</h6>
                         {
-                            props.orders 
+                            props.requests 
                             ? <h4 className="mb-0">{props.requests.length}</h4>
                             : <Spinner />
                         }
