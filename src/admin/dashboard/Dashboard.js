@@ -10,6 +10,8 @@ import CompanyNameForm from '../dashboard-sections/CompanyNameForm';
 import Requests from '../dashboard-sections/Orders';
 import BankListFrom from '../dashboard-sections/BanksListForm';
 
+import axios from 'axios';
+
 
 function Dashboard() {
 

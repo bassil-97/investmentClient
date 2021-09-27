@@ -19,9 +19,6 @@ let vc2 = Math.floor(1000 + Math.random() * 9000);
 
 export default function Form() {
 
-    console.log(vc);
-    console.log(vc2);
-
     const [values, setValues] = useState({
         clientFullname: '',
         clientId: '',
