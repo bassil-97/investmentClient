@@ -2,10 +2,20 @@ import React, { useState } from 'react';
 
 import './Dashboard-sections.css';
 import Clock from '../../UI/Clock';
+import Snackbar from '../../UI/Snackbar';
 
 export default function BankListFrom() {
 
     const [newBank, setNewBank] = useState("");
+    const [showSnackbar, setShowSnackbar] = useState(false);
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setShowSnackbar(false);
+    };
 
     const addBankHandler = () => {
         fetch("https://investment-c954f-default-rtdb.firebaseio.com/bank-lists.json", {
@@ -15,6 +25,7 @@ export default function BankListFrom() {
             }),
         });
         
+        setShowSnackbar(true);
         setNewBank("");
     }
 
@@ -36,6 +47,7 @@ export default function BankListFrom() {
                     <button type="button" class="btn btn-primary" onClick={addBankHandler}>إضافة</button>
                 </div>
             </div>
+            <Snackbar open={showSnackbar} handleClose={handleClose}  />
         </div>
     )
 }

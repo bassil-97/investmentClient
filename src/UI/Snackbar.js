@@ -24,7 +24,7 @@ export default function CustomizedSnackbars(props) {
     <div className={classes.root}>
       <Snackbar open={props.open} autoHideDuration={6000} onClose={props.handleClose}>
         <Alert onClose={props.handleClose} severity="success">
-          تم إرسال طلبك بنجاح
+          {props.message}
         </Alert>
       </Snackbar>
     </div>
