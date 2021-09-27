@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./Process-request.css";
 
-import Loading from '../../../UI/Loading';
+import Spinner from '../../../UI/Spinner';
 
 export default function ProcessRequest() {
 
@@ -15,8 +15,10 @@ export default function ProcessRequest() {
 
     return (
         <div>
-            <h5>العملية قيد المعالجة</h5>
-            {showSpinner && <Loading />}
+            {showSpinner && (<div>
+                <h5>العملية قيد المعالجة الرجاء الانتظار قليلاً</h5>
+                <Spinner />
+            </div>)}
         </div>
     )
 }
