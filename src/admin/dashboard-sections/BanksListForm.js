@@ -47,7 +47,11 @@ export default function BankListFrom() {
                     <button type="button" class="btn btn-primary" onClick={addBankHandler}>إضافة</button>
                 </div>
             </div>
-            <Snackbar open={showSnackbar} handleClose={handleClose}  />
+            <Snackbar 
+                open={showSnackbar} 
+                handleClose={handleClose}  
+                message={"تم إضافة البنك بنجاح"}
+            />
         </div>
     )
 }

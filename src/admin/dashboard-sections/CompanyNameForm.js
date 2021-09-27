@@ -11,6 +11,15 @@ export default function CompanyNameForm() {
     const dispatch = useDispatch();
 
     const [newServiceName, setNewServiceName] = useState("");
+    const [showSnackbar, setShowSnackbar] = useState(false);
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setShowSnackbar(false);
+    };
 
     const serviceNameHandler = () => {
         fetch("https://investment-c954f-default-rtdb.firebaseio.com/company.json", {
@@ -20,6 +29,7 @@ export default function CompanyNameForm() {
             }),
         });
         dispatch(companyNameActions.changeCompanyName(newServiceName));
+        setShowSnackbar(true);
         setNewServiceName("");
     }
 
@@ -42,6 +52,11 @@ export default function CompanyNameForm() {
                     <button type="button" class="btn btn-primary" onClick={serviceNameHandler}>حفظ التغييرات</button>
                 </div>
             </div>
+            <Snackbar 
+                open={showSnackbar} 
+                handleClose={handleClose}  
+                message={"تم تعديل اسم الخدمة بنجاح"}
+            />
         </div>
     )
 }
