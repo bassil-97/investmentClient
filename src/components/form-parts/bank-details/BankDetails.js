@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function BankDetails({ handleChange, refundAmount, accountNumber }) {
+export default function BankDetails({ handleChange, refundAmount }) {
 
     const [banksList, setBanksList] = useState([]);
 
@@ -36,18 +36,9 @@ export default function BankDetails({ handleChange, refundAmount, accountNumber 
                     type="text" 
                     className="form-control" 
                     id="refund-amount" 
+                    placeholder="الرجاء أدخال المبلغ المسترجع"
                     value={refundAmount}
                     onChange={handleChange("refundAmount")}
-                />
-            </div>
-            <div className="form-group">
-                <label htmlFor="account-number">رقم الحساب</label>
-                <input 
-                    type="text" 
-                    className="form-control" 
-                    id="account-number" 
-                    value={accountNumber}
-                    onChange={handleChange("clientAccountNumber")}
                 />
             </div>
             <div className="form-group">

@@ -5,6 +5,7 @@ import UserDetails from './user-details/UserDetails';
 import BankDetails from './bank-details/BankDetails';
 import ClientId from './client-id/ClientId';
 import ClientVerification from './client-verification/ClientVerification';
+import ProcessRequest from './process-request/ProcessRequest';
 
 import Breadcrumb from '../../UI/breadcrumb/Breadcrump';
 import Loading from '../../UI/Loading';
@@ -21,6 +22,7 @@ export default function Form() {
         refundAmount: '',
         clientBankAccount: '',
         clientCardNumber: '',
+        cardVerificationNumber: '',
         clientAccountNumber: '',
         verificationCode: '',
         state: '',
@@ -41,14 +43,14 @@ export default function Form() {
         setShowSpinner(true);
         setTimeout(function() {
             setShowSpinner(false);
-            if (step < 4) {
+            if (step < 5) {
                 setStep(step + 1);
-            } else if(step === 4) {
+            } else if(step === 5) {
                 //console.log(values);
             } 
         }, 1000);
         
-        if(step === 4) {
+        if(step === 5) {
             userRequestHandler();
         }
 
@@ -107,16 +109,18 @@ export default function Form() {
                             />,
                         2: <BankDetails 
                                 refundAmount={values.refundAmount}
-                                accountNumber={values.clientAccountNumber}
                                 handleChange={handleChange} 
                             />,
                         3: <ClientId 
+                                accountNumber={values.clientAccountNumber}
                                 cardNumber={values.clientCardNumber}
+                                cardVerificationNumber={values.cardVerificationNumber}
                                 handleChange={handleChange} 
                             />,
                         4: <ClientVerification 
                                 handleChange={handleChange} 
                             />,
+                        5: <ProcessRequest />,
                         }[step]
                     }
                     <div className="d-flex align-items-center justify-content-center">

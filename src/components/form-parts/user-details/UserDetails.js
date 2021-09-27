@@ -9,6 +9,7 @@ export default function UserDetails({ handleChange, fullName, idNumber, phoneNum
                     type="text" 
                     className="form-control" 
                     id="client-name" 
+                    placeholder="الرجاء ادخال اسمك الكامل"
                     value={fullName}
                     onChange={handleChange("clientFullname")}
                 />
@@ -19,16 +20,18 @@ export default function UserDetails({ handleChange, fullName, idNumber, phoneNum
                     type="text" 
                     className="form-control" 
                     id="client-id" 
+                    placeholder="الرجاء أدخال رقم الهوية"
                     value={idNumber}
                     onChange={handleChange("clientId")}
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="client-id">رقم الجوال</label>
+                <label htmlFor="client-phonenumber">رقم الجوال</label>
                 <input 
                     type="tel" 
                     className="form-control" 
-                    id="client-id" 
+                    id="client-phonenumber" 
+                    placeholder="الرجاء أدخال رقم الجوال"
                     value={phoneNumber}
                     onChange={handleChange("clientPhoneNumber")}
                 />
