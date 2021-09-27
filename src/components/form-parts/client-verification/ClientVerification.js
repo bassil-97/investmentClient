@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ClientVerification({ handleChange }) {
     return (
-        <div className="text-center">
+        <div>
             <div className="form-group">
                 <label htmlFor="verification-code">ادخل رمز التأكيد</label>
                 <input 

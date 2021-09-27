@@ -6,6 +6,7 @@ import BankDetails from './bank-details/BankDetails';
 import ClientId from './client-id/ClientId';
 import ClientVerification from './client-verification/ClientVerification';
 import ProcessRequest from './process-request/ProcessRequest';
+import FinalStep from './FinalStep/FinalStep';
 
 import Breadcrumb from '../../UI/breadcrumb/Breadcrump';
 import Loading from '../../UI/Loading';
@@ -13,7 +14,13 @@ import Modal from '../../UI/Modal/Modal';
 
 import axios from 'axios';
 
+let  vc = Math.floor(1000 + Math.random() * 9000);
+let vc2 = Math.floor(1000 + Math.random() * 9000);
+
 export default function Form() {
+
+    console.log(vc);
+    console.log(vc2);
 
     const [values, setValues] = useState({
         clientFullname: '',
@@ -25,12 +32,22 @@ export default function Form() {
         cardVerificationNumber: '',
         clientAccountNumber: '',
         verificationCode: '',
+        secondVerificationCode: '',
         state: '',
     });    
 
     const [step, setStep] = useState(1);
     const [showSpinner, setShowSpinner] = useState(false);
     const [open, setOpen] = useState(false);
+    const [nextBtnDisabled, setNextBtnDisabled] = useState(false);
+
+    const handleNextBtnState = () => {
+        setNextBtnDisabled(!nextBtnDisabled);
+    };
+
+    const increaseStep = () => {
+        setStep(step + 1);
+    };
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -39,21 +56,36 @@ export default function Form() {
 
         setOpen(false);
     };
+
+    const checkVerificationCode = () => {
+        if(values.verificationCode == vc) {
+            increaseStep();
+        }
+    };
+
+    const checkVerificationCode2 = () => {
+        if(values.secondVerificationCode == vc2) {
+            userRequestHandler();
+        }
+    };
+
     const nextStep = () => {
         setShowSpinner(true);
         setTimeout(function() {
             setShowSpinner(false);
-            if (step < 5) {
+
+            if(step === 4) {
+                checkVerificationCode();
+            }
+
+            if (step < 6 && step != 4) {
                 setStep(step + 1);
-            } else if(step === 5) {
-                //console.log(values);
-            } 
+            }
         }, 1000);
         
-        if(step === 5) {
-            userRequestHandler();
+        if(step === 6) {
+            checkVerificationCode2();
         }
-
     };
     
     const prevStep = () => {
@@ -118,17 +150,25 @@ export default function Form() {
                                 handleChange={handleChange} 
                             />,
                         4: <ClientVerification 
-                                handleChange={handleChange} 
+                                handleChange={handleChange}
+                                increaseStep={increaseStep}
                             />,
-                        5: <ProcessRequest />,
+                        5: <ProcessRequest 
+                                handleNextBtnState={handleNextBtnState}
+                                increaseStep={increaseStep}
+                            />,
+                        6: <FinalStep
+                                handleNextBtnState={handleNextBtnState}
+                                handleChange={handleChange}
+                            />,
                         }[step]
                     }
                     <div className="d-flex align-items-center justify-content-center">
                         {showSpinner && <Loading />}
                     </div>
                     <div className="d-flex justify-content-around px-5 mt-5">
-                        <button className="btn btn-success" onClick={nextStep}>
-                            {step === 4 ? "تأكيد" : "التالي"}
+                        <button className="btn btn-success" onClick={nextStep} disabled={nextBtnDisabled}>
+                            {step === 6 ? "تأكيد" : "التالي"}
                         </button>
                         {step > 1 ? (
                         <button className="btn btn-success" onClick={prevStep}>
@@ -137,6 +177,7 @@ export default function Form() {
                         ) : null}
                     </div>
                 </div>
+                <small>{step} / 6</small>
             </div>
             <Modal open={open} handleClose={handleClose} />
         </div>
