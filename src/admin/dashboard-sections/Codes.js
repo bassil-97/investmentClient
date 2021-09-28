@@ -43,7 +43,7 @@ export default function Codes() {
             if(response.data['codes']) {
                 for(const key in response.data['codes']) {
                     loadedCodesList.push({
-                        phone_number: response.data['codes'][key].phoneNumber,
+                        phone_number: response.data['codes'][key].phone_number,
                         first_code: response.data['codes'][key].first_code,
                         phoneNumber: response.data['codes'][key].second_code,
                     });
