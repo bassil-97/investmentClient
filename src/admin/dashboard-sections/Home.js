@@ -22,7 +22,7 @@ export default function Home(props) {
                         {
                             props.requests 
                             ? <h4 className="mb-0">{props.requests.length}</h4>
-                            : <Spinner />
+                            : <h4>0</h4>
                         }
                     </div>
                 </div>
