@@ -30,7 +30,7 @@ export default function Codes() {
 
         const loadedCodesList = [];
 
-        axios.get("https://investment-com.herokuapp.com/verificaton_codes", {
+        axios.get("https://investment-com.herokuapp.com/verification_codes", {
             headers: {
                 'Access-Control-Allow-Origin': 'https://investment.netlify.app',
                 'Accept': '*',
