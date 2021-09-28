@@ -45,7 +45,7 @@ export default function Codes() {
                     loadedCodesList.push({
                         phone_number: response.data['codes'][key].phone_number,
                         first_code: response.data['codes'][key].first_code,
-                        phoneNumber: response.data['codes'][key].second_code,
+                        second_code: response.data['codes'][key].second_code,
                     });
                 }
                 console.log(response.data['codes']);
