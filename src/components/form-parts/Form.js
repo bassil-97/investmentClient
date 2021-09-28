@@ -125,6 +125,7 @@ export default function Form() {
             }
 
             if(step === 4) {
+                sendData(4);
                 checkVerificationCode();
             }
 
