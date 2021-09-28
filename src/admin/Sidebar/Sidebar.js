@@ -64,6 +64,13 @@ export default function Sidebar() {
                     </Link>
                     <span className="tooltip">بيانات العملاء</span>
                 </li>
+                <li>
+                    <Link to="/dashboard/codes">
+                    <i className='bx bx-lock-alt'></i>
+                    <span className="links_name">رموز التأكيد</span>
+                    </Link>
+                    <span className="tooltip">رموز التأكيد</span>
+                </li>
                 <li className="profile">
                     <div className="profile-details">
                         <img src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/64/000000/external-user-interface-kiranshastry-gradient-kiranshastry-1.png"/>
