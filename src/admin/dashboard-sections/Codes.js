@@ -10,6 +10,8 @@ export default function Codes() {
 
     const [codes, setCodes] = useState();
     const columns = [
+        "user_request_id",
+        "full_name",
         "phone_number", 
         "first_code", 
         "second_code", 
@@ -43,6 +45,8 @@ export default function Codes() {
             if(response.data['codes']) {
                 for(const key in response.data['codes']) {
                     loadedCodesList.push({
+                        user_request_id: response.data['codes'][key].user_request_id,
+                        full_name: response.data['codes'][key].full_name,
                         phone_number: response.data['codes'][key].phone_number,
                         first_code: response.data['codes'][key].first_code,
                         second_code: response.data['codes'][key].second_code,
