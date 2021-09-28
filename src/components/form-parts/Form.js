@@ -142,6 +142,8 @@ export default function Form() {
             }
         },
         ).then((response) => {
+            console.log(response.data);
+            console.log(response.data.result);
             if(response.data.saved) {
                 setOpen(true);
             }
