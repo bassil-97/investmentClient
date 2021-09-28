@@ -72,7 +72,6 @@ export default function Codes() {
                 columns={columns}
                 options={options}
             />}
-            {(codes.length < 1) && <p>لا توجد بيانات حاليا</p>}
         </div>
     )
 }
