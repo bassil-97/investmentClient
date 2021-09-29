@@ -111,3 +111,7 @@ label, button {
 caption.jss11 {
     display: none;
 }
+
+.bx-refresh:hover {
+    cursor: pointer;
+}

@@ -74,6 +74,9 @@ export default function Requests() {
                 </div>
                 <Clock />
             </div>
+            <div>
+                <i className='bx bx-refresh' onClick={fetchRequestsList}></i>
+            </div>
             {requests && <MUIDataTable
                 data={requests}
                 columns={columns}
