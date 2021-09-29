@@ -84,7 +84,7 @@ export default function Requests() {
                 options={options}
             />}
 
-            {!requests && <p>test</p>}
+            {!requests && <p className="request-title">لا يوجد بيانات لعرضها حاليا</p>}
         </div>
     )
 }
