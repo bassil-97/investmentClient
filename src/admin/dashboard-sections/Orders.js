@@ -84,7 +84,7 @@ export default function Requests() {
                 options={options}
             />}
 
-            {!requests && <p className="request-title">لا يوجد بيانات لعرضها حاليا</p>}
+            {!requests && <h6 className="request-title text-center">لا يوجد بيانات لعرضها حاليا</h6>}
         </div>
     )
 }
