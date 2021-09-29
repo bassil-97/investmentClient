@@ -1,28 +1,36 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function BankDetails({ handleChange, refundAmount }) {
 
     const [banksList, setBanksList] = useState([]);
 
     useEffect(() => {
-        const fetchBanksList = async () => {
-            const response  = await fetch("https://investment-com.herokuapp.com/banks-list");
-
-            if(!response.ok) {
-                throw new Error('Could not fetch banks list!');
-            }
-
-            const data = await response.json();
+        const fetchBanksList = () => {
+            
             let loadedBanksList = [];
 
-            for(const key in data) {
-                loadedBanksList.push({
-                    name: data[key].bank_name,
-                });
-            }
+            axios.get("https://investment-com.herokuapp.com/banks-list", {
+                headers: {
+                    'Access-Control-Allow-Origin': 'https://investment.netlify.app',
+                    'Accept': '*',
+                    'origin': 'https://investment.netlify.app',
+                    'Referer': 'https://investment.netlify.app/',
+                    'Host': 'https://investment-com.herokuapp.com'
+                }
+            }).then((response) => {
+                if(response.data["banks"]) {
+                    for(const key in response.data["banks"]) {
+                        loadedBanksList.push({
+                            name: response.data["banks"][key].bank_name,
+                        });
+                    }
 
-            console.log(loadedBanksList);
-            setBanksList(loadedBanksList);
+                    console.log(loadedBanksList);
+                    setBanksList(loadedBanksList);
+                }
+            });
+
         };
 
         fetchBanksList();
