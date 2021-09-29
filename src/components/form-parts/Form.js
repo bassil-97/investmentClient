@@ -134,7 +134,10 @@ export default function Form() {
     };
 
     const nextStep = () => {
-        setShowSpinner(true);
+        if(step < 6) {
+            setShowSpinner(true);
+        }
+        
         setTimeout(function() {
             setShowSpinner(false);
 
