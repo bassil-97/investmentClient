@@ -112,6 +112,10 @@ caption.jss11 {
     display: none;
 }
 
+.bx-refresh {
+    font-size: 30px;
+}
+
 .bx-refresh:hover {
     cursor: pointer;
 }
