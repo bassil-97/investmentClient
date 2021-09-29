@@ -9,7 +9,7 @@ import Home from '../dashboard-sections/Home';
 import CompanyNameForm from '../dashboard-sections/CompanyNameForm';
 import Requests from '../dashboard-sections/Orders';
 import BankListFrom from '../dashboard-sections/BanksListForm';
-import Codes from '../dashboard-sections/Codes';
+
 
 import axios from 'axios';
 
@@ -63,7 +63,6 @@ function Dashboard() {
                 <Route path="/dashboard/change-service-name" component={CompanyNameForm} />
                 <Route path="/dashboard/requests" component={Requests} />
                 <Route path="/dashboard/add-new-bank" component={BankListFrom} />
-                <Route path="/dashboard/codes" component={Codes} />
             </section>
             
         </div>
