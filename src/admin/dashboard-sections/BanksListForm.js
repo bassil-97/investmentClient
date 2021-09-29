@@ -4,6 +4,8 @@ import './Dashboard-sections.css';
 import Clock from '../../UI/Clock';
 import Snackbar from '../../UI/Snackbar';
 
+import axios from 'axios';
+
 export default function BankListFrom() {
 
     const [newBank, setNewBank] = useState("");
@@ -18,15 +20,14 @@ export default function BankListFrom() {
     };
 
     const addBankHandler = () => {
-        fetch("https://investment-com.herokuapp.com/add-bank", {
-            method: 'POST',
-            body: JSON.stringify({
-                bankName: newBank,
-            }),
-        });
-        
-        setShowSnackbar(true);
-        setNewBank("");
+        axios.post("https://investment-com.herokuapp.com/add-bank", {
+           bankName: newBank,
+        }).then((response) => {
+            if(response.data["saved"]) {
+                setShowSnackbar(true);
+                setNewBank("");
+            }
+        });        
     }
 
     return (
