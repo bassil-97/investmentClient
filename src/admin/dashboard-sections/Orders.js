@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import Button from '@mui/material/Button';
-import AutorenewIcon from '@mui/icons-material/Autorenew';
 import MUIDataTable from "mui-datatables";
 import Clock from '../../UI/Clock';
 
@@ -78,11 +76,11 @@ export default function Requests() {
                 <Clock />
             </div>
             <div>
-                <Button variant="outlined" startIcon={<AutorenewIcon />} onClick={fetchRequestsList}>
+                <button type="button" className="btn btn-primary" onClick={fetchRequestsList}>
                     تحديث البيانات
-                </Button>
+                </button>
             </div>
-            {requests && <MUIDataTable
+            {<MUIDataTable
                 data={requests}
                 columns={columns}
                 options={options}
