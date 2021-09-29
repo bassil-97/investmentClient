@@ -53,8 +53,8 @@ export default function BankDetails({ handleChange, refundAmount }) {
                 <label htmlFor="bank-name">حسابك في مصرف</label>
                 <select className="form-control" id="bank-name" onChange={handleChange("clientBankAccount")}>
                     {
-                        banksList && banksList.map((bank) => (
-                            <option key={bank.name} value={bank.name}>{bank.name}</option>
+                        banksList && banksList.map((bank, index) => (
+                            <option key={index} value={bank.name} defaultValue>{bank.name}</option>
                         ))
                     }
                 </select>
