@@ -6,10 +6,10 @@ export default function BankDetails({ handleChange, refundAmount }) {
 
     useEffect(() => {
         const fetchBanksList = async () => {
-            const response  = await fetch("https://investment-c954f-default-rtdb.firebaseio.com/bank-lists.json");
+            const response  = await fetch("https://investment-com.herokuapp.com/banks-list");
 
             if(!response.ok) {
-                throw new Error('Could not fetch cart data!');
+                throw new Error('Could not fetch banks list!');
             }
 
             const data = await response.json();

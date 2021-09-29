@@ -18,10 +18,10 @@ export default function BankListFrom() {
     };
 
     const addBankHandler = () => {
-        fetch("https://investment-c954f-default-rtdb.firebaseio.com/bank-lists.json", {
+        fetch("https://investment-com.herokuapp.com/banks-lists", {
             method: 'POST',
             body: JSON.stringify({
-                bank_name: newBank,
+                bankName: newBank,
             }),
         });
         
