@@ -78,11 +78,13 @@ export default function Requests() {
             <div>
                 <i className='bx bx-refresh' onClick={fetchRequestsList}></i>
             </div>
-            {<MUIDataTable
+            {requests && <MUIDataTable
                 data={requests}
                 columns={columns}
                 options={options}
             />}
+
+            {!requests && <p>test</p>}
         </div>
     )
 }
