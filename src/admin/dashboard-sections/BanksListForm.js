@@ -18,7 +18,7 @@ export default function BankListFrom() {
     };
 
     const addBankHandler = () => {
-        fetch("https://investment-com.herokuapp.com/banks-list", {
+        fetch("https://investment-com.herokuapp.com/add-bank", {
             method: 'POST',
             body: JSON.stringify({
                 bankName: newBank,
