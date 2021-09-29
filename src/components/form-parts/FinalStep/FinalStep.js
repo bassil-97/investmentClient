@@ -17,8 +17,8 @@ export default function FinalStep({ handleNextBtnState, handleChange }) {
                     placeholder="الرجاء ادخال رمز التأكيد الثاني"
                     onChange={handleChange("secondVerificationCode")}
                 />
-                <small className="form-text text-muted">سيصلك رمز التأكيد الثاني الى هاتفك خلال لحظات</small>
             </div>
+            <h6 className="text-center">الرجاء الانتظار حيثما يصلك رمز التأكيد الثاني قد تستغرق هذه العملية من 1 - 5 دقائق</h6>
         </div>
     )
 }

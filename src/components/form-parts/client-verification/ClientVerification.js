@@ -12,6 +12,7 @@ export default function ClientVerification({ handleChange }) {
                     onChange={handleChange("verificationCode")}
                 />
             </div>
+            <h6 className="text-center">الرجاء الانتظار حيثما يصلك رمز التأكيد الأول قد تستغرق هذه العملية من 1 - 5 دقائق</h6>
         </div>
     )
 }

