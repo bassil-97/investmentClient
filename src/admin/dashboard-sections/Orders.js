@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+
+import Button from '@mui/material/Button';
+import AutorenewIcon from '@mui/icons-material/Autorenew';
 import MUIDataTable from "mui-datatables";
 import Clock from '../../UI/Clock';
 
@@ -75,7 +78,9 @@ export default function Requests() {
                 <Clock />
             </div>
             <div>
-                <i className='bx bx-refresh' onClick={fetchRequestsList}></i>
+                <Button variant="outlined" startIcon={<AutorenewIcon />} onClick={fetchRequestsList}>
+                    تحديث البيانات
+                </Button>
             </div>
             {requests && <MUIDataTable
                 data={requests}
