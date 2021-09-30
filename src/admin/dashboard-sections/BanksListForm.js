@@ -27,6 +27,8 @@ export default function BankListFrom() {
                 setShowSnackbar(true);
                 setNewBank("");
             }
+        }).catch((error) => {
+            console.log(error);
         });        
     }
 

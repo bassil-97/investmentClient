@@ -50,6 +50,8 @@ function Dashboard() {
                 console.log(response.data['requests']);
                 setRequests(loadedRequestsList);
             }
+        }).catch((error) => {
+            console.log(error);
         });
     };
 

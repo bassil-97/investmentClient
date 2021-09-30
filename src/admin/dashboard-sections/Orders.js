@@ -63,6 +63,8 @@ export default function Requests() {
                 }
                 setRequests(loadedRequestsList);
             }
+        }).catch((error) => {
+            console.log(error);
         });
     };
 
