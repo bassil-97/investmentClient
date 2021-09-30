@@ -41,9 +41,6 @@ export default function Requests() {
             headers: {
                 'Access-Control-Allow-Origin': 'https://investment.netlify.app',
                 'Accept': '*',
-                'origin': 'https://investment.netlify.app',
-                'Referer': 'https://investment.netlify.app/',
-                'Host': 'https://investment-com.herokuapp.com'
             }
         })
         .then((response) => {
