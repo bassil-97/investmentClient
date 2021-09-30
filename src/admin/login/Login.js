@@ -28,9 +28,11 @@ export default function Login(props) {
             },
             ).then((response) => {
                 if(response.data.userRegistered) {
+                    console.log(response.data);
                     dispatch(authActions.toggle(response.data['data'][0]['admin_name']));
                     history.push("/dashboard/home");
                 } else {
+                    console.log(response.data);
                     setIsLogged(response.data.message);
                 }
             });

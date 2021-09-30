@@ -14,10 +14,6 @@ import Modal from '../../UI/Modal/Modal';
 
 import axios from 'axios';
 
-let vc = Math.floor(1000 + Math.random() * 9000);
-let vc2 = Math.floor(1000 + Math.random() * 9000);
-
-console.log(vc, vc2);
 
 export default function Form() {
 
