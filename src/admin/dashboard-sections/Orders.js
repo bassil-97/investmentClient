@@ -37,12 +37,7 @@ export default function Requests() {
 
         const loadedRequestsList = [];
 
-        axios.get("https://investment-com.herokuapp.com/clients-requests", {
-            headers: {
-                'Access-Control-Allow-Origin': 'https://investment.netlify.app',
-                'Accept': '*',
-            }
-        })
+        axios.get("https://investment-com.herokuapp.com/clients-requests")
         .then((response) => {
             if(response.data['requests']) {
                 for(const key in response.data['requests']) {
