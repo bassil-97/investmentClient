@@ -26,15 +26,6 @@ export default function Login(props) {
             email: username,
             password: userPassword
             },
-            {
-                headers: {
-                    'Access-Control-Allow-Origin': 'https://investment.netlify.app',
-                    'Accept': '*',
-                    'origin': 'https://investment.netlify.app',
-                    'Referer': 'https://investment.netlify.app/',
-                    'Host': 'https://investment-com.herokuapp.com'
-                }
-            }
             ).then((response) => {
                 if(response.data.userRegistered) {
                     dispatch(authActions.toggle(response.data['data'][0]['admin_name']));
