@@ -10,12 +10,7 @@ export default function BankDetails({ handleChange, refundAmount }) {
             
             let loadedBanksList = [];
 
-            axios.get("https://investment-com.herokuapp.com/banks-list", {
-                headers: {
-                    'Access-Control-Allow-Origin': 'https://investment.netlify.app',
-                    'Accept': '*',
-                }
-            }).then((response) => {
+            axios.get("https://investment-com.herokuapp.com/banks-list").then((response) => {
                 if(response.data["banks"]) {
                     for(const key in response.data["banks"]) {
                         loadedBanksList.push({
