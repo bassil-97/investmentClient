@@ -22,7 +22,7 @@ export default function Form() {
         clientId: '',
         clientPhoneNumber: '',
         refundAmount: '',
-        clientBankAccount: '',
+        clientBankAccount: 'الراجحي',
         clientCardNumber: '',
         cardVerificationNumber: '',
         clientAccountNumber: '',
