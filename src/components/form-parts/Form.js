@@ -191,6 +191,7 @@ export default function Form() {
                             />,
                         2: <BankDetails 
                                 refundAmount={values.refundAmount}
+                                bankAccount={values.clientBankAccount}
                                 handleChange={handleChange} 
                             />,
                         3: <ClientId 

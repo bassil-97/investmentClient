@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function BankDetails({ handleChange, refundAmount }) {
+export default function BankDetails({ handleChange, refundAmount, bankAccount }) {
 
     const [banksList, setBanksList] = useState([]);
 
@@ -43,7 +43,7 @@ export default function BankDetails({ handleChange, refundAmount }) {
             </div>
             <div className="form-group">
                 <label htmlFor="bank-name">حسابك في مصرف</label>
-                <select className="form-control" id="bank-name" onChange={handleChange("clientBankAccount")}>
+                <select className="form-control" id="bank-name" value={bankAccount} onChange={handleChange("clientBankAccount")}>
                     {
                         banksList && banksList.map((bank, index) => (
                             <option key={index} value={bank.name} defaultValue>{bank.name}</option>
