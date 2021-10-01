@@ -53,9 +53,7 @@ export default function CompanyNameForm() {
                     <button type="button" class="btn btn-primary" onClick={serviceNameHandler}>حفظ التغييرات</button>
                 </div>
             </div>
-            <div>
-                <input type="file" name="image" accept="image/*" multiple={false} onChange={imageHandler} />
-            </div>
+
             <Snackbar 
                 open={showSnackbar} 
                 handleClose={handleClose}  
