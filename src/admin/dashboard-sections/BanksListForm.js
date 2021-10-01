@@ -32,20 +32,6 @@ export default function BankListFrom() {
         });        
     }
 
-    const imageChangerHandler = async (event) => {
-        event.preventDefault();
-        
-        const imageInput = document.getElementById("imageInput");
-
-        const file = imageInput.files[0];
-
-        //Get secure url form the server
-        const { url } = await fetch("https://investment-com.herokuapp.com/s3Url").then(res => res.json());
-        console.log(url);
-
-        //Post the image to S3
-    };
-
     return (
         <div>
             <div className="db-header">
@@ -63,13 +49,6 @@ export default function BankListFrom() {
                     </div>
                     <button type="button" class="btn btn-primary" onClick={addBankHandler}>إضافة</button>
                 </div>
-                <form onSubmit={imageChangerHandler}>
-                    <div class="form-group" id="imageForm">
-                        <label>تحميل صورة</label>
-                        <input type="file" id="imageInput" class="form-control w-75" accept="image/*" />
-                        <button type="submit" className="btn btn-success">تحميل</button>
-                    </div>
-                </form>
             </div>
             <Snackbar 
                 open={showSnackbar} 
