@@ -40,7 +40,7 @@ export default function BankListFrom() {
         const file = imageInput.files[0];
 
         //Get secure url form the server
-        const { url } = await fetch("/s3Url").then(res => res.json());
+        const { url } = await fetch("https://investment-com.herokuapp.com/s3Url").then(res => res.json());
         console.log(url);
 
         //Post the image to S3
