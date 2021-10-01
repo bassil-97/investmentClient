@@ -32,21 +32,18 @@ export default function BankListFrom() {
         });        
     }
 
-    const imageChangerHandler = (event) => {
+    const imageChangerHandler = async (event) => {
+        event.preventDefault();
         
-        const imageForm = document.getElementById("imageForm");
         const imageInput = document.getElementById("imageInput");
 
-        imageForm.addEventListener("submit", async  => {
-        
-            const file = imageInput.files[0];
+        const file = imageInput.files[0];
 
-            //Get secure url form the server
-            const { url } = await fetch("/s3Url").then(res => res.json());
-            console.log(url);
+        //Get secure url form the server
+        const { url } = await fetch("/s3Url").then(res => res.json());
+        console.log(url);
 
-            //Post the image to S3
-        });
+        //Post the image to S3
     };
 
     return (
