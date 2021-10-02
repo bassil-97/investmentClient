@@ -119,6 +119,7 @@ export default function Form() {
                     if(response.data.saved) {
                         console.log("step 5");
                         userRequestHandler();
+                        setStep(1);
                     }
                 }).catch((error) => {
                     console.log(error);
